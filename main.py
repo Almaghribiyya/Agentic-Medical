@@ -1,5 +1,6 @@
 # File utama aplikasi Chatbot Kesehatan AI.
 
+
 import os
 from dotenv import load_dotenv
 import streamlit as st
@@ -68,12 +69,13 @@ def run_agent(user_input: str, retriever: FaissRetriever, memory, pdf_content: s
     final_input = f"{system_prompt}\n\nPertanyaan: {user_input}"
 
     try:
-        # Definisi tools tetap sama
+        # Definisi tools
         tools = [
             Tool(name='cari_info_dari_database_kesehatan', func=lambda q: get_medical_info(q, retriever), description="Gunakan untuk menjawab pertanyaan spesifik tentang penyakit atau kondisi dari database statistik internal. Input harus nama penyakit."),
             Tool(name='analisis_tren_statistik_penyakit', func=lambda q: analyze_cause_trend(q, retriever), description="Gunakan untuk menganalisis statistik tren untuk SATU JENIS penyakit dari waktu ke waktu dari database. Input harus nama penyakitnya."),
             Tool(name='cari_penyebab_kematian_ekstrem_per_tahun', func=find_extremes_in_year, description="Gunakan untuk mencari penyebab kematian TERTINGGI atau TERENDAH pada SATU TAHUN spesifik dari database. Pertanyaan harus mengandung 'tertinggi' atau 'terendah' dan tahun."),
             Tool(name='beri_rekomendasi_kesehatan_umum', func=lambda q: recommend_actions(q, retriever), description="Gunakan untuk memberikan rekomendasi kesehatan umum berdasarkan topik dari database."),
+        
             Tool(name='pencarian_internet_google', func=get_Google_Search_results, description="Gunakan HANYA untuk mencari berita kesehatan SANGAT BARU atau informasi medis umum yang TIDAK ADA di database maupun dokumen."),
             Tool(name='terjemah_istilah_medis', func=translate_medical_terms, description="Gunakan untuk menerjemahkan istilah medis. Format: 'teks to bahasa_tujuan'."),
             Tool(name='dapatkan_tanggal_sekarang', func=get_current_date, description="Gunakan untuk mengetahui tanggal dan waktu saat ini.")
@@ -99,16 +101,19 @@ def main():
     load_css()
     st.markdown("<header><h1>🩺 Asisten Kesehatan Indonesia</h1><p>Didukung oleh AI, RAG, dan Google Search</p></header>", unsafe_allow_html=True)
     
-    # ---`Saran pertanyaan yang lebih baik ---
+    # ---Saran pertanyaan yang lebih jelas dan mengarahkan ---
     initial_greeting = """Halo! Saya adalah Asisten Kesehatan AI Anda.
 
-**Anda bisa bertanya tentang data kesehatan umum, misalnya:**
-* `Apa penyebab kematian tertinggi tahun 2015?`
-* `Bagaimana tren statistik penyakit DBD`
+**Apa yang bisa saya bantu?**
 
-**Atau, unggah dokumen medis Anda di sidebar, lalu tanyakan isinya, contohnya:**
-* `Apa diagnosis utama pasien dalam dokumen tersebut?`
-* `Sebutkan obat-obatan yang diresepkan di file ini.`
+Anda bisa bertanya tentang data kesehatan umum dari database kami, contohnya:
+* `Apa penyebab kematian tertinggi di Indonesia pada tahun 2015?`
+* `Bagaimana tren statistik penyakit DBD?`
+* `Berikan rekomendasi untuk penyakit menular.`
+
+**Anda juga bisa mengunggah dokumen medis (PDF) di sidebar.** Setelah diunggah, Anda bisa langsung bertanya tentang isinya, misalnya:
+* `Apa diagnosis utama pasien dalam dokumen ini?`
+* `Sebutkan semua obat yang diresepkan dalam file tersebut.`
 """
     if "messages" not in st.session_state:
         st.session_state.messages = [{"role": "assistant", "content": initial_greeting}]
@@ -116,6 +121,8 @@ def main():
         st.session_state.memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
     if "processed_file_name" not in st.session_state:
         st.session_state.processed_file_name = None
+    if "pdf_content" not in st.session_state:
+        st.session_state.pdf_content = None
 
     @st.cache_resource
     def init_retriever():
@@ -165,11 +172,8 @@ def main():
         with st.chat_message("assistant", avatar="🩺"):
             with st.spinner("Asisten sedang berpikir..."):
                 try:
-                    # --- Logika pemanggilan ---
-                    # Selalu panggil run_agent dan berikan konteks PDF jika ada
                     pdf_context = st.session_state.get("pdf_content")
                     response_text = run_agent(user_input, retriever, st.session_state.memory, pdf_content=pdf_context)
-                    
                     st.markdown(response_text)
                     st.session_state.messages.append({"role": "assistant", "content": response_text})
                 except Exception as e:
