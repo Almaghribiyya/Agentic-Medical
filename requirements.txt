@@ -1,33 +1,13 @@
 # requirements.txt - Versi Final yang Sudah Dirapikan
-
-# Framework utama untuk UI
 streamlit
-
-# Pustaka inti untuk AI Agent dan komponennya
 langchain
 langchain-google-genai
 google-genai
-
-# Untuk embedding dari Cohere
 cohere
-
-# Untuk database vektor
 faiss-cpu
-
-# Untuk membaca environment variables (.env)
 python-dotenv
-
-# Untuk analisis dan manipulasi data (digunakan di tools)
 pandas
-
-# Untuk fitur terjemahan
 googletrans==4.0.0-rc1
-
-# Untuk fitur Google Search
 googlesearch-python
-
-# Untuk membaca file PDF
 PyPDF2
-
-# Untuk menghitung token (digunakan di callback handler)
 tiktoken
