@@ -99,7 +99,7 @@ def main():
     load_css()
     st.markdown("<header><h1>🩺 Asisten Kesehatan Indonesia</h1><p>Didukung oleh AI, RAG, dan Google Search</p></header>", unsafe_allow_html=True)
     
-    # ---Saran pertanyaan yang lebih baik ---
+    # ---`Saran pertanyaan yang lebih baik ---
     initial_greeting = """Halo! Saya adalah Asisten Kesehatan AI Anda.
 
 **Anda bisa bertanya tentang data kesehatan umum, misalnya:**
