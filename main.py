@@ -36,29 +36,53 @@ def load_css():
         st.warning("File 'style.css' tidak ditemukan.")
 
 def get_Google_Search_results(query: str) -> str:
-    """Wrapper untuk pencarian Google agar mengembalikan string."""
+    """
+    Melakukan pencarian Google dan mengembalikan string jawaban yang sudah diformat lengkap dengan URL.
+    """
     try:
-        results = list(search(query, num_results=3, lang="id"))
-        return "\n".join([f"{i+1}. {res}" for i, res in enumerate(results)]) if results else "Tidak ada hasil relevan di Google."
+        # Menentukan jumlah hasil pencarian
+        num_results = 5
+        print(f"Melakukan pencarian Google untuk '{query}'...")
+        results = list(search(query, num_results=num_results, lang="id"))
+        
+        if not results:
+            return f"Maaf, saya tidak dapat menemukan hasil yang relevan di Google untuk '{query}'."
+
+        # Buat daftar URL yang diformat dengan nomor
+        url_list = "\n".join([f"{i+1}. {url}" for i, url in enumerate(results)])
+        
+        # --- [PERBAIKAN UTAMA] ---
+        # Buat string jawaban final yang akan langsung ditampilkan oleh agent.
+        final_answer = (
+            f"Tentu, berikut adalah {len(results)} hasil pencarian teratas untuk '{query}':\n"
+            f"{url_list}\n\n"
+            "**Penting**: Harap evaluasi sendiri kredibilitas dan keakuratan informasi dari situs-situs tersebut."
+        )
+        return final_answer
+        
     except Exception as e:
-        return f"Error saat melakukan pencarian Google: {str(e)}"
+        return f"Terjadi kesalahan saat melakukan pencarian Google: {str(e)}"
 
 # --- Logika Agent ---
 def run_agent(user_input: str, retriever: FaissRetriever, memory, pdf_content: str = None):
     """
     Menginisialisasi dan menjalankan agent.
-    Agent ini sekarang sadar akan konteks PDF jika diberikan.
+    Agent ini sekarang sadar akan konteks PDF dan diinstruksikan untuk memberikan jawaban yang lebih kontekstual.
     """
     print("--- Menjalankan Unified Agent ---")
     
     # Buat prompt sistem yang dinamis berdasarkan ada atau tidaknya konteks PDF
     system_prompt = ""
     if pdf_content:
+        # --- [PROMPT DISEMPURNAKAN DI SINI] ---
         system_prompt = f"""
-        PERHATIAN: Pengguna telah mengunggah sebuah dokumen medis. Anda adalah asisten yang ahli dalam menganalisis dokumen ini.
-        PRIORITAS UTAMA Anda adalah menjawab pertanyaan pengguna berdasarkan 'KONTEKS DOKUMEN' di bawah ini.
-        Jika jawaban bisa ditemukan di dalam dokumen, JANGAN GUNAKAN TOOLS LAIN, dan langsung jawab berdasarkan dokumen.
-        Gunakan tools hanya jika pertanyaan jelas-jelas tidak berkaitan dengan isi dokumen (misalnya, menanyakan statistik umum, tanggal, atau pencarian internet).
+        PERHATIAN: Pengguna telah mengunggah sebuah dokumen medis. Anda adalah asisten medis yang sangat teliti dan komunikatif.
+        
+        TUGAS UTAMA ANDA:
+        1.  Jawab pertanyaan pengguna HANYA berdasarkan 'KONTEKS DOKUMEN' di bawah ini.
+        2.  Saat menjawab pertanyaan tentang pasien, SELALU sebutkan nama pasien (jika ada di dalam dokumen) untuk memberikan konteks yang jelas. Contoh: "Menurut dokumen, diagnosis untuk pasien Budi Santoso adalah..."
+        3.  Jika jawaban tidak ada di dokumen, katakan dengan jujur bahwa informasi tersebut tidak ditemukan di dalam dokumen.
+        4.  Gunakan 'Tools' hanya jika pertanyaan jelas-jelas tidak berkaitan dengan isi dokumen (misalnya, menanyakan statistik umum, tanggal, atau pencarian internet).
 
         --- KONTEKS DOKUMEN ---
         {pdf_content}
@@ -69,13 +93,12 @@ def run_agent(user_input: str, retriever: FaissRetriever, memory, pdf_content: s
     final_input = f"{system_prompt}\n\nPertanyaan: {user_input}"
 
     try:
-        # Definisi tools
+        # Definisi tools (tidak ada perubahan)
         tools = [
             Tool(name='cari_info_dari_database_kesehatan', func=lambda q: get_medical_info(q, retriever), description="Gunakan untuk menjawab pertanyaan spesifik tentang penyakit atau kondisi dari database statistik internal. Input harus nama penyakit."),
             Tool(name='analisis_tren_statistik_penyakit', func=lambda q: analyze_cause_trend(q, retriever), description="Gunakan untuk menganalisis statistik tren untuk SATU JENIS penyakit dari waktu ke waktu dari database. Input harus nama penyakitnya."),
             Tool(name='cari_penyebab_kematian_ekstrem_per_tahun', func=find_extremes_in_year, description="Gunakan untuk mencari penyebab kematian TERTINGGI atau TERENDAH pada SATU TAHUN spesifik dari database. Pertanyaan harus mengandung 'tertinggi' atau 'terendah' dan tahun."),
             Tool(name='beri_rekomendasi_kesehatan_umum', func=lambda q: recommend_actions(q, retriever), description="Gunakan untuk memberikan rekomendasi kesehatan umum berdasarkan topik dari database."),
-        
             Tool(name='pencarian_internet_google', func=get_Google_Search_results, description="Gunakan HANYA untuk mencari berita kesehatan SANGAT BARU atau informasi medis umum yang TIDAK ADA di database maupun dokumen."),
             Tool(name='terjemah_istilah_medis', func=translate_medical_terms, description="Gunakan untuk menerjemahkan istilah medis. Format: 'teks to bahasa_tujuan'."),
             Tool(name='dapatkan_tanggal_sekarang', func=get_current_date, description="Gunakan untuk mengetahui tanggal dan waktu saat ini.")
