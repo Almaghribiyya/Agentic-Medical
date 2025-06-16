@@ -1,0 +1,93 @@
+/* File ini untuk mengatur UI dari proyek Chatbot */
+
+/* Pengaturan Global & Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* --- Pengaturan Background Utama --- */
+[data-testid="stAppViewContainer"] {
+    background-image: url('https://images.unsplash.com/photo-1586773860417-e3495e35824c?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+/* --- Memberi lapisan agar teks terbaca --- */
+[data-testid="stAppViewContainer"] > .main {
+    background-color: rgba(247, 249, 252, 0.92); /* Latar belakang semi-transparan */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+/* Header Utama */
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a3a5d;
+    margin-bottom: 0;
+}
+
+header p {
+    font-size: 1rem;
+    color: #5c6e80;
+}
+
+/* Kustomisasi Sidebar */
+.st-emotion-cache-16txtl3 {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-right: 1px solid #e6e9ef;
+    backdrop-filter: blur(5px);
+}
+
+.st-emotion-cache-16txtl3 h2, .st-emotion-cache-16txtl3 h3 {
+    color: #1a3a5d;
+    font-weight: 500;
+}
+
+/* Tampilan Chat Bubbles */
+[data-testid="chat-message-container"] {
+    display: flex;
+    flex-direction: column;
+}
+
+[data-testid="stChatMessage"]:has([data-testid="chat-avatar-assistant"]) {
+    background-color: #ffffff;
+    border: 1px solid #e6e9ef;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+[data-testid="stChatMessage"]:has([data-testid="chat-avatar-user"]) {
+    background-color: #007bff;
+    color: white;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    align-self: flex-end;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+[data-testid="stChatMessage"]:has([data-testid="chat-avatar-user"]) p {
+    color: white;
+}
+
+/* ---  Styling Tombol Hapus Riwayat --- */
+.st-emotion-cache-16txtl3 .stButton>button[kind="secondary"] {
+    background-color: #ffebee; 
+    color: #c62828; 
+    border: 1px solid #ef9a9a;
+    border-radius: 8px;
+    padding: 2px 10px; 
+    font-size: 0.8rem; 
+    font-weight: 500;
+    width: 100%;
+}
+.st-emotion-cache-16txtl3 .stButton>button[kind="secondary"]:hover {
+    background-color: #ffcdd2;
+    color: #b71c1c;
+    border-color: #e57373;
+}
