@@ -1,18 +1,38 @@
-# requirements.txt 
+# requirements.txt - Versi FINAL dengan library terjemahan yang stabil
 
+# Framework utama untuk UI
 streamlit
+
+# Pustaka Pydantic V2 yang dibutuhkan oleh LangChain modern
 pydantic>=2.0
+
+# --- Kumpulan LangChain Modern ---
 langchain-core~=0.2.0
 langchain-community~=0.2.0
 langchain~=0.2.0
 langchain-google-genai~=1.0.5
+# ---------------------------------
+
+# Untuk embedding dari Cohere
 cohere
+
+# Untuk database vektor
 faiss-cpu
+
+# Untuk membaca environment variables (.env)
 python-dotenv
+
+# Untuk analisis dan manipulasi data (digunakan di tools)
 pandas
+
+# Untuk fitur Google Search
 googlesearch-python
+
+# Untuk membaca file PDF
 PyPDF2
+
+# Untuk menghitung token (digunakan di callback handler)
 tiktoken
 
-# Library terjemahan 
+# Library terjemahan resmi dari Google Cloud
 google-cloud-translate
