@@ -1,15 +1,27 @@
-# Berisi fungsi untuk menerjemahkan istilah penyakit dan sebainya.
-from googletrans import Translator
+# tools/translator_tool.py
+# Versi FINAL menggunakan library resmi Google Cloud Translate
+
+from google.cloud import translate_v2 as translate
+import os
+
+# Inisialisasi klien terjemahan.
+# Otentikasi akan berjalan otomatis di lingkungan Google Cloud seperti Streamlit Cloud
+# jika API-nya sudah diaktifkan.
+try:
+    translate_client = translate.Client()
+except Exception as e:
+    print(f"Peringatan: Gagal menginisialisasi Google Translate Client: {e}")
+    translate_client = None
 
 def translate_medical_terms(query: str) -> str:
     """
-    Menerjemahkan teks atau istilah medis.
-    Args:
-        query (str): Teks yang ingin diterjemahkan. Harus dalam format 'teks_sumber to bahasa_tujuan'.
-                     Contoh: 'headache to indonesia' atau 'sakit kepala to en'.
-    Returns:
-        str: Teks yang sudah diterjemahkan.
+    Menerjemahkan istilah medis menggunakan Google Cloud Translation API.
+    Format input: 'teks yang akan diterjemahkan to bahasa tujuan'.
+    Contoh: 'headache to indonesia' atau 'sakit kepala to en'.
     """
+    if not translate_client:
+        return "Error: Klien terjemahan tidak berhasil diinisialisasi. Pastikan Cloud Translation API sudah aktif di proyek Google Cloud Anda."
+
     try:
         parts = query.lower().split(' to ')
         if len(parts) != 2:
@@ -18,12 +30,14 @@ def translate_medical_terms(query: str) -> str:
         text_to_translate = parts[0].strip()
         dest_lang = parts[1].strip()
         
-        # Mapping bahasa umum ke kode bahasa
-        lang_map = {'indonesia': 'id', 'inggris': 'en', 'jawa': 'jw'}
+        # Mapping bahasa umum ke kode bahasa ISO 639-1
+        lang_map = {'indonesia': 'id', 'inggris': 'en', 'jawa': 'jw', 'sunda': 'su'}
         dest_code = lang_map.get(dest_lang, dest_lang)
         
-        translator = Translator()
-        translated = translator.translate(text_to_translate, dest=dest_code)
-        return f"Hasil terjemahan '{text_to_translate}' adalah: {translated.text}"
+        # Panggil API terjemahan
+        result = translate_client.translate(text_to_translate, target_language=dest_code)
+        
+        return f"Hasil terjemahan '{text_to_translate}' adalah: {result['translatedText']}"
+
     except Exception as e:
-        return f"Gagal menerjemahkan: {e}"
+        return f"Gagal menerjemahkan: {e}. Pastikan Cloud Translation API sudah diaktifkan."
