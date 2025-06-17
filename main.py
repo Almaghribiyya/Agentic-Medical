@@ -1,6 +1,5 @@
 # File utama aplikasi Chatbot Kesehatan AI.
 
-
 import os
 from dotenv import load_dotenv
 import streamlit as st
@@ -51,7 +50,6 @@ def get_Google_Search_results(query: str) -> str:
         # Buat daftar URL yang diformat dengan nomor
         url_list = "\n".join([f"{i+1}. {url}" for i, url in enumerate(results)])
         
-        # --- [PERBAIKAN UTAMA] ---
         # Buat string jawaban final yang akan langsung ditampilkan oleh agent.
         final_answer = (
             f"Tentu, berikut adalah {len(results)} hasil pencarian teratas untuk '{query}':\n"
@@ -74,7 +72,7 @@ def run_agent(user_input: str, retriever: FaissRetriever, memory, pdf_content: s
     # Buat prompt sistem yang dinamis berdasarkan ada atau tidaknya konteks PDF
     system_prompt = ""
     if pdf_content:
-        # --- [PROMPT DISEMPURNAKAN DI SINI] ---
+        
         system_prompt = f"""
         PERHATIAN: Pengguna telah mengunggah sebuah dokumen medis. Anda adalah asisten medis yang sangat teliti dan komunikatif.
         
@@ -93,7 +91,7 @@ def run_agent(user_input: str, retriever: FaissRetriever, memory, pdf_content: s
     final_input = f"{system_prompt}\n\nPertanyaan: {user_input}"
 
     try:
-        # Definisi tools (tidak ada perubahan)
+        # Definisi tools
         tools = [
             Tool(name='cari_info_dari_database_kesehatan', func=lambda q: get_medical_info(q, retriever), description="Gunakan untuk menjawab pertanyaan spesifik tentang penyakit atau kondisi dari database statistik internal. Input harus nama penyakit."),
             Tool(name='analisis_tren_statistik_penyakit', func=lambda q: analyze_cause_trend(q, retriever), description="Gunakan untuk menganalisis statistik tren untuk SATU JENIS penyakit dari waktu ke waktu dari database. Input harus nama penyakitnya."),
