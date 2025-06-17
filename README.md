@@ -94,6 +94,6 @@ Disease trends
 
 5. Open a Pull Request
 
-View the live portfolio: [[https://almaghribiyya-portfolio.vercel.app/](https://agentic-medical.streamlit.app/)]()
+View the live portfolio: [[https://almaghribiyya-portfolio.vercel.app/](https://agentic-medical.streamlit.app/)]
 
 Built with ❤️ by [Muhammad Rezka Al Maghribi]](https://microsoft.com)))
