@@ -1,4 +1,5 @@
-# tools/date_tool.py
+# File ini berisi fungsi untuk mendapatkan tanggal dan waktu saat ini.
+
 from datetime import datetime
 
 def get_current_date(query: str = "") -> str:
