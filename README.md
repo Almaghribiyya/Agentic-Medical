@@ -10,8 +10,7 @@ An intelligent medical assistant chatbot powered by Google's Gemini AI, featurin
 
 ## 🎥 Screenshots
 
-![Screenshot 2025-06-17 185929](https://github.com/user-attachments/assets/567a9a0c-7a94-47f9-8dec-d67f6750aaac)
-
+![Screenshot 2025-06-17 220739](https://github.com/user-attachments/assets/0f2353f1-694d-489b-b5d1-d72e76932cb6)
 
 ## ✨ Features
 
