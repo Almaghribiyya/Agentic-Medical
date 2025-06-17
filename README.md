@@ -69,18 +69,18 @@ An intelligent medical assistant chatbot powered by Google's Gemini AI, featurin
 
 🚀 Usage
 
-Launch the application using Streamlit
+1. Launch the application using Streamlit
 
-Upload medical documents (PDF) through the sidebar
+2. Upload medical documents (PDF) through the sidebar
 Ask questions about:
 
-Uploaded documents
+- Uploaded documents
+  
+- Medical statistics
 
-Medical statistics
+- Health recommendations
 
-Health recommendations
-
-Disease trends
+- Disease trends
 
 🤝 Contributing
 
