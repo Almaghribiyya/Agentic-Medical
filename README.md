@@ -96,4 +96,4 @@ Ask questions about:
 
 ## 🩺 Links : https://agentic-medical.streamlit.app/
 
-# Built with ❤️ by Muhammad Rezka Al Maghribi
+## Built with ❤️ by Muhammad Rezka Al Maghribi
