@@ -94,6 +94,6 @@ Ask questions about:
 
 5. Open a Pull Request
 
-## View the live portfolio: https://agentic-medical.streamlit.app/
+## 🩺 View the portfolio https://agentic-medical.streamlit.app/
 
 # Built with ❤️ by Muhammad Rezka Al Maghribi
