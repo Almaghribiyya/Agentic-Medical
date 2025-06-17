@@ -1,21 +1,21 @@
-## 🩺 Agentic Medical Assistant
+# 🩺 Agentic Medical Assistant
 
-🛠️ Technologies Used
+## 🛠️ Technologies Used
 
 <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&amp;logo=python&amp;logoColor=white"> <img alt="Streamlit" src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&amp;logo=streamlit&amp;logoColor=white"> <img alt="Google Cloud" src="https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&amp;logo=google-cloud&amp;logoColor=white"> <img alt="LangChain" src="https://img.shields.io/badge/LangChain-121D33?style=for-the-badge&amp;logo=chainlink&amp;logoColor=white"> <img alt="FAISS" src="https://img.shields.io/badge/FAISS-00ADD8?style=for-the-badge&amp;logo=facebook&amp;logoColor=white"> <img alt="Pandas" src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&amp;logo=pandas&amp;logoColor=white">
 
-🌟 Overview
+## 🌟 Overview
 
 An intelligent medical assistant chatbot powered by Google's Gemini AI, featuring document analysis, multilingual support, and comprehensive medical information retrieval. Built with Streamlit and LangChain, offering a seamless interface for healthcare queries and document processing.
 
-🎥 Screenshots
+## 🎥 Screenshots
 
 ![Screenshot 2025-06-17 185929](https://github.com/user-attachments/assets/567a9a0c-7a94-47f9-8dec-d67f6750aaac)
 
 
-✨ Features
+## ✨ Features
 
-🤖 AI-Powered Conversations
+### 🤖 AI-Powered Conversations
 
 - Natural language understanding with Google Gemini
 
@@ -23,7 +23,7 @@ An intelligent medical assistant chatbot powered by Google's Gemini AI, featurin
 
 - Medical terminology translation
 
-📊 Data Analysis
+### 📊 Data Analysis
 
 - Statistical health data processing
 
@@ -31,7 +31,7 @@ An intelligent medical assistant chatbot powered by Google's Gemini AI, featurin
 
 - Historical medical data insights
 
-📄 Document Processing
+### 📄 Document Processing
 
 - PDF medical document analysis
 
@@ -39,7 +39,7 @@ An intelligent medical assistant chatbot powered by Google's Gemini AI, featurin
 
 - Multi-page document support
 
-🔍 Smart Search
+### 🔍 Smart Search
 
 - Vector-based search using FAISS
 
@@ -47,7 +47,7 @@ An intelligent medical assistant chatbot powered by Google's Gemini AI, featurin
 
 - Relevant information retrieval
 
-🌐 Multilingual Support
+### 🌐 Multilingual Support
 
 - Medical term translation
 
@@ -55,7 +55,7 @@ An intelligent medical assistant chatbot powered by Google's Gemini AI, featurin
 
 - Indonesian-English support
 
-⚙️ Installation
+## ⚙️ Installation
 
 1. Clone the repository
 
@@ -67,7 +67,7 @@ An intelligent medical assistant chatbot powered by Google's Gemini AI, featurin
 
 5. Run the application
 
-🚀 Usage
+## 🚀 Usage
 
 1. Launch the application using Streamlit
 
@@ -82,7 +82,7 @@ Ask questions about:
 
 - Disease trends
 
-🤝 Contributing
+## 🤝 Contributing
 
 1. Fork the project
 
@@ -94,6 +94,6 @@ Ask questions about:
 
 5. Open a Pull Request
 
-View the live portfolio: https://agentic-medical.streamlit.app/
+## View the live portfolio: https://agentic-medical.streamlit.app/
 
-Built with ❤️ by Muhammad Rezka Al Maghribi
+# Built with ❤️ by Muhammad Rezka Al Maghribi
