@@ -8,6 +8,11 @@
 
 An intelligent medical assistant chatbot powered by Google's Gemini AI, featuring document analysis, multilingual support, and comprehensive medical information retrieval. Built with Streamlit and LangChain, offering a seamless interface for healthcare queries and document processing.
 
+🎥 Screenshots
+
+![Screenshot 2025-06-17 185929](https://github.com/user-attachments/assets/567a9a0c-7a94-47f9-8dec-d67f6750aaac)
+
+
 ✨ Features
 
 🤖 AI-Powered Conversations
