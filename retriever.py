@@ -1,5 +1,7 @@
 # File ini adalah bagian dari proyek chatbot medis yang menggunakan FAISS untuk pencarian berbasis vektor.
-#         full_text = full_text.strip()
+# File ini bertanggung jawab untuk mengambil data relevan dari indeks FAISS
+# berdasarkan query yang diberikan, menggunakan model embedding dari Cohere.
+
 import os
 import pandas as pd
 import numpy as np
