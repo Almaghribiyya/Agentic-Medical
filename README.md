@@ -1,4 +1,4 @@
-🩺 Agentic Medical Assistant
+## 🩺 Agentic Medical Assistant
 
 🛠️ Technologies Used
 
