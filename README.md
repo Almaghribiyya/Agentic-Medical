@@ -2,12 +2,7 @@
 
 🛠️ Technologies Used
 
-<img alt="Python" src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&amp;logo=python&amp;logoColor=white">
-<img alt="Streamlit" src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&amp;logo=streamlit&amp;logoColor=white">
-<img alt="Google Cloud" src="https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&amp;logo=google-cloud&amp;logoColor=white">
-<img alt="LangChain" src="https://img.shields.io/badge/LangChain-121D33?style=for-the-badge&amp;logo=chainlink&amp;logoColor=white">
-<img alt="FAISS" src="https://img.shields.io/badge/FAISS-00ADD8?style=for-the-badge&amp;logo=facebook&amp;logoColor=white">
-<img alt="Pandas" src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&amp;logo=pandas&amp;logoColor=white">
+<img alt="Python" src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&amp;logo=python&amp;logoColor=white"> <img alt="Streamlit" src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&amp;logo=streamlit&amp;logoColor=white"> <img alt="Google Cloud" src="https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&amp;logo=google-cloud&amp;logoColor=white"> <img alt="LangChain" src="https://img.shields.io/badge/LangChain-121D33?style=for-the-badge&amp;logo=chainlink&amp;logoColor=white"> <img alt="FAISS" src="https://img.shields.io/badge/FAISS-00ADD8?style=for-the-badge&amp;logo=facebook&amp;logoColor=white"> <img alt="Pandas" src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&amp;logo=pandas&amp;logoColor=white">
 
 🌟 Overview
 
