@@ -18,11 +18,13 @@ An intelligent medical assistant chatbot powered by Google's Gemini AI, featurin
 Natural language understanding with Google Gemini
 Context-aware responses
 Medical terminology translation
+
 📊 Data Analysis
 
 Statistical health data processing
 Trend analysis for diseases
 Historical medical data insights
+
 📄 Document Processing
 
 PDF medical document analysis
@@ -44,7 +46,7 @@ Indonesian-English support
 ⚙️ Installation
 
 Clone the repository
-Create and activate virtual environment
+Create and activate a virtual environment
 Install dependencies
 Set up environment variables
 Run the application
