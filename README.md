@@ -17,55 +17,55 @@ An intelligent medical assistant chatbot powered by Google's Gemini AI, featurin
 
 🤖 AI-Powered Conversations
 
-Natural language understanding with Google Gemini
+- Natural language understanding with Google Gemini
 
-Context-aware responses
+- Context-aware responses
 
-Medical terminology translation
+- Medical terminology translation
 
 📊 Data Analysis
 
-Statistical health data processing
+- Statistical health data processing
 
-Trend analysis for diseases
+- Trend analysis for diseases
 
-Historical medical data insights
+- Historical medical data insights
 
 📄 Document Processing
 
-PDF medical document analysis
+- PDF medical document analysis
 
-Structured information extraction
+- Structured information extraction
 
-Multi-page document support
+- Multi-page document support
 
 🔍 Smart Search
 
-Vector-based search using FAISS
+- Vector-based search using FAISS
 
-Google search integration
+- Google search integration
 
-Relevant information retrieval
+- Relevant information retrieval
 
 🌐 Multilingual Support
 
-Medical term translation
+- Medical term translation
 
-Multiple language processing
+- Multiple language processing
 
-Indonesian-English support
+- Indonesian-English support
 
 ⚙️ Installation
 
-Clone the repository
+1. Clone the repository
 
-Create and activate a virtual environment
+2. Create and activate a virtual environment
 
-Install dependencies
+3. Install dependencies
 
-Set up environment variables
+4. Set up environment variables
 
-Run the application
+5. Run the application
 
 🚀 Usage
 
@@ -84,16 +84,16 @@ Disease trends
 
 🤝 Contributing
 
-Fork the project
+1. Fork the project
 
-Create your feature branch (git checkout -b feature/AmazingFeature)
+2. Create your feature branch (git checkout -b feature/AmazingFeature)
 
-Commit your changes (git commit -m 'Add some AmazingFeature')
+3. Commit your changes (git commit -m 'Add some AmazingFeature')
 
-Push to the branch (git push origin feature/AmazingFeature)
+4. Push to the branch (git push origin feature/AmazingFeature)
 
-Open a Pull Request
+5. Open a Pull Request
 
-View the live portfolio: [Portfolio Website]([https://almaghribiyya-portfolio.vercel.app/](https://agentic-medical.streamlit.app/))
+View the live portfolio: [[https://almaghribiyya-portfolio.vercel.app/](https://agentic-medical.streamlit.app/)]()
 
 Built with ❤️ by [Muhammad Rezka Al Maghribi]](https://microsoft.com)))
