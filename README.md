@@ -18,31 +18,41 @@ An intelligent medical assistant chatbot powered by Google's Gemini AI, featurin
 🤖 AI-Powered Conversations
 
 Natural language understanding with Google Gemini
+
 Context-aware responses
+
 Medical terminology translation
 
 📊 Data Analysis
 
 Statistical health data processing
+
 Trend analysis for diseases
+
 Historical medical data insights
 
 📄 Document Processing
 
 PDF medical document analysis
+
 Structured information extraction
+
 Multi-page document support
 
 🔍 Smart Search
 
 Vector-based search using FAISS
+
 Google search integration
+
 Relevant information retrieval
 
 🌐 Multilingual Support
 
 Medical term translation
+
 Multiple language processing
+
 Indonesian-English support
 
 ⚙️ Installation
@@ -83,5 +93,7 @@ Commit your changes (git commit -m 'Add some AmazingFeature')
 Push to the branch (git push origin feature/AmazingFeature)
 
 Open a Pull Request
+
+View the live portfolio: [Portfolio Website]([https://almaghribiyya-portfolio.vercel.app/](https://agentic-medical.streamlit.app/))
 
 Built with ❤️ by [Muhammad Rezka Al Maghribi]](https://microsoft.com)))
