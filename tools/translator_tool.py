@@ -1,5 +1,4 @@
-# tools/translator_tool.py
-# Versi FINAL menggunakan library resmi Google Cloud Translate
+# File ini adalah bagian dari aplikasi Streamlit yang menerjemahkan istilah medis
 
 from google.cloud import translate_v2 as translate
 import os

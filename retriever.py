@@ -6,7 +6,7 @@ import numpy as np
 import faiss
 from langchain_community.embeddings import CohereEmbeddings
 from dotenv import load_dotenv
-import streamlit as st # <-- Tambahkan import streamlit
+import streamlit as st 
 
 class FaissRetriever:
     def __init__(self, csv_path: str, index_path: str):
@@ -14,7 +14,7 @@ class FaissRetriever:
         
         self.df = pd.read_csv(csv_path).fillna("")
 
-        # --- [PERBAIKAN] Logika pengambilan API Key ---
+        
         # Coba ambil dari st.secrets dulu, jika gagal (berarti jalan lokal), ambil dari .env
         cohere_api_key = st.secrets.get("COHERE_API_KEY") or os.getenv("COHERE_API_KEY")
         if not cohere_api_key:
@@ -32,7 +32,7 @@ class FaissRetriever:
             raise FileNotFoundError(f"File index FAISS tidak ditemukan di {index_path}.")
 
     def get_relevant(self, query: str, k: int = 5) -> list:
-        # ... (sisa fungsi ini tidak berubah) ...
+        
         q_vec = self.embedding_model.embed_query(query)
         distances, indices = self.index.search(np.array([q_vec], dtype='float32'), k)
         results = []

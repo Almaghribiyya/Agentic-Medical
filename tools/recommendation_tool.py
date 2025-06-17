@@ -1,4 +1,3 @@
-# tools/recommendation_tool.py
 # Berisi fungsi untuk memberikan rekomendasi kesehatan umum berdasarkan jenis penyebab.
 
 def recommend_actions(query: str, retriever) -> str:
