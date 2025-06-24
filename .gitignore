@@ -1,2 +1,3 @@
 # environment variables
 .env
+.streamlit\secrets.toml

@@ -25,8 +25,9 @@ python-dotenv
 # Untuk analisis dan manipulasi data (digunakan di tools)
 pandas
 
-# Untuk fitur Google Search
+# Untuk fitur Google Search dan scraping
 googlesearch-python
+beautifulsoup4
 
 # Untuk membaca file PDF
 PyPDF2
@@ -36,3 +37,4 @@ tiktoken
 
 # Library terjemahan resmi dari Google Cloud
 google-cloud-translate
+
